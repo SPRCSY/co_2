@@ -12,8 +12,9 @@
 ## 功能
 
 - [x] CO2 浓度读取 (5秒刷新)
-- [x] RGB LED 状态指示
-- [ ] BLE 无线传输数据
+- [x] RGB LED 状态指示 (GPIO48)
+- [x] 串口输出 (115200波特率)
+- [ ] BLE 无线传输 (开发中)
 
 ## 快速开始
 
@@ -29,10 +30,20 @@ cargo build
 cargo espflash flash --monitor
 ```
 
-### Python 上位机
+### Python 上位机 (串口)
 
 ```bash
 python co2_monitor.py
+```
+
+### BLE 客户端 (待完善)
+
+```bash
+# 安装依赖
+pip install bleak
+
+# 运行 BLE 扫描
+python ble_client.py --continuous
 ```
 
 ## 引脚分配

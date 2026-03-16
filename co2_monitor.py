@@ -31,15 +31,15 @@ def main():
 
     print(f"日志将保存到: {csv_filename}")
     
-    # 初始化文件并写入表头
-    try:
-        with open(csv_filename, "a", newline="", encoding="utf-8") as f:
-            writer = csv.writer(f)
-            if write_header:
-                writer.writerow(["Timestamp", "CO2 Value(ppm)"])
-    except Exception as e:
-        print(f"无法打开日志文件: {e}")
-        return
+    # # 初始化文件并写入表头
+    # try:
+    #     with open(csv_filename, "a", newline="", encoding="utf-8") as f:
+    #         writer = csv.writer(f)
+    #         if write_header:
+    #             writer.writerow(["Timestamp", "CO2 Value(ppm)"])
+    # except Exception as e:
+    #     print(f"无法打开日志文件: {e}")
+    #     return
 
     while True:
         port_name = find_esp32_port()
@@ -64,9 +64,9 @@ def main():
                                 print(f"[{timestamp}] CO2 浓度: {co2_val} ppm")
                                 
                                 # 将数据持续追加保存至 CSV (每次打开保证断电保护)
-                                with open(csv_filename, "a", newline="", encoding="utf-8") as f:
-                                    writer = csv.writer(f)
-                                    writer.writerow([timestamp, co2_val])
+                                # with open(csv_filename, "a", newline="", encoding="utf-8") as f:
+                                #     writer = csv.writer(f)
+                                #     writer.writerow([timestamp, co2_val])
                             except ValueError:
                                 pass
                         elif "ERR" in line:
