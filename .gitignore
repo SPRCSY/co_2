@@ -5,3 +5,9 @@
 /.claude
 *.log
 CLAUDE.md
+/build
+*log*
+*.old
+.cache
+managed_components
+.espressif
